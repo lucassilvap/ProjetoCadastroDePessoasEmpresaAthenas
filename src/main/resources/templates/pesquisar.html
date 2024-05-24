@@ -11,19 +11,37 @@
 
 <div th:if="${pessoa.nome != null}">
     <form>
-        <button type="button" onclick="editar()"> Editar Pessoa</button>
+        <button type="button" onclick="editar()"> Alterar Pessoa</button>
         <button type="button" onclick="excluir()"> Excluir Pessoa </button>
         <button type="button" onclick="voltarATelaInicial()"> Voltar a tela inicial </button>
     </form>
-    <p>Nome: <span th:text="${pessoa.nome}"></span></p>
+    <p> <span th:text="${pessoa.nome}"></span></p>
     <p>Cpf: <span th:text="${pessoa.cpf}"></span></p>
     <p>Altura: <span th:text="${pessoa.altura}"></span></p>
     <p>Peso: <span th:text="${pessoa.peso}"></span></p>
     <p>Sexo: <span th:text="${pessoa.sexo}"></span></p>
-    <p>Data nascimento: <span th:text="${pessoa.data_Nasc}"></span></p>
+    <p>Data nascimento: <span th:text="${pessoa.data_Nasc}"></span>
 </div>
 <div th:if="${pessoa.nome == null}">
     <p>Nenhuma pessoa encontrada</p>
+    <button type="button" onclick="voltarATelaInicial()"> Voltar a tela inicial </button>
 </div>
 </body>
+<script th:inline="javascript">
+
+function voltarATelaInicial(){
+    window.location.href = "http://localhost:8080";
+}
+function excluir(){
+    var excluir = [[${pessoa.nome}]]
+    var novaURL = `http://localhost:8080/excluir/${excluir}`;
+    fetch(novaURL, {
+        method: "DELETE",
+    })
+    window.location.href = "http://localhost:8080";
+}
+function editar(){
+    window.location.href = "http://localhost:8080";
+}
+</script>
 </html>

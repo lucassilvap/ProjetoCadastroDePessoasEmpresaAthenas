@@ -17,7 +17,12 @@ public class Task {
     PessoaRepository pessoaRepository;
 
     public Pessoa incluir(Pessoa pessoa){
-        return pessoaRepository.save(pessoa);
+        Optional <Pessoa> pessoa1 = pessoaRepository.findByNomeIgnoreCase(pessoa.getNome());
+        if(pessoa1.isPresent()) {
+            return  new Pessoa();
+        } else{
+            return pessoaRepository.save(pessoa);
+        }
     }
 
     public Pessoa buscarPessoa(Long id) {

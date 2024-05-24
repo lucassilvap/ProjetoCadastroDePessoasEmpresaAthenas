@@ -3,6 +3,7 @@ import com.example.projetoathenas1.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,10 +28,15 @@ public class PaginasControler {
 
     @GetMapping("/pesquisar")
     public String buscar(@RequestParam(name = "nome") String nome, Model model){
-        System.out.println(nome);
         model.addAttribute("pessoa", pessoaService.buscarPessoaPorNome(nome));
         return "pesquisar";
     }
 
+    @DeleteMapping("/excluir/{excluir}")
+    public String excluirPessoa(@PathVariable(name = "excluir") String excluir){
+        System.out.println("Bati no endpoint");
+        System.out.println(excluir);
+        return "index";
+    }
 }
 

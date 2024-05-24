@@ -15,11 +15,14 @@
 
 <ul>
     <!-- Itera sobre a lista de itens e exibe cada item -->
-    <li th:each="pessoa : ${pessoas}"> Nome: [[${pessoa.nome}]]
+    <li style="list-style-type: none;" th:each="pessoa : ${pessoas}"> Nome: [[${pessoa.nome}]]
         <br> Cpf: [[${pessoa.cpf}]]
         <br> Altura: [[${pessoa.altura}]]
         <br> Peso: [[${pessoa.peso}]]
-        <br> Sexo: [[${pessoa.sexo}]] <br>
+        <br> Sexo: [[${pessoa.sexo}]]
+        <br> Data de nascimento: [[${pessoa.data_Nasc}]]
+        <br>
+        <br>
     </li>
 </ul>
 
