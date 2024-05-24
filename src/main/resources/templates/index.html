@@ -30,15 +30,17 @@
 
 
 <script>
+
     function redirecionar() {
         // Redirecionamento para outra página
         window.location.href = "http://localhost:8080/cadastrar";
     }
 
-    function pesquisar(){
+    function pesquisar() {
         var buscar = document.getElementById('buscar').value;
         var novaURL = "http://localhost:8080/pesquisar?nome=" + buscar;
         window.location.href = novaURL;
+
     }
 </script>
 </html>

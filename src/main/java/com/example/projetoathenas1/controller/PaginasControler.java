@@ -34,8 +34,7 @@ public class PaginasControler {
 
     @DeleteMapping("/excluir/{excluir}")
     public String excluirPessoa(@PathVariable(name = "excluir") String excluir){
-        System.out.println("Bati no endpoint");
-        System.out.println(excluir);
+        pessoaService.excluirPeloNome(excluir);
         return "index";
     }
 }

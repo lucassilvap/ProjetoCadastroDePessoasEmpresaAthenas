@@ -37,9 +37,19 @@ function excluir(){
     var novaURL = `http://localhost:8080/excluir/${excluir}`;
     fetch(novaURL, {
         method: "DELETE",
-    })
-    window.location.href = "http://localhost:8080";
+        redirect: "follow"
+    }).then(response => {
+        if(!response.ok){
+            throw new Error("Error")
+        }
+    }).then(data => {
+        console.log("data");
+        window.location.href = 'http://localhost:8080';
+    }).catch((error)=> console.log("error", error));
 }
+
+
+
 function editar(){
     window.location.href = "http://localhost:8080";
 }

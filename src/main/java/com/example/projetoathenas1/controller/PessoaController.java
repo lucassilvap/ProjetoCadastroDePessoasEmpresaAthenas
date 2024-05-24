@@ -27,17 +27,5 @@ public class PessoaController {
        return ResponseEntity.ok(("Salvo com sucesso!"));
     }
 
-    @GetMapping("{id}")
-    public ResponseEntity<?> buscarPessoa(@PathVariable(value = "id") Long id){
-        return ResponseEntity.ok(pessoaService.buscar(id));
-    }
-
-    @DeleteMapping("{id}")
-    public ResponseEntity<?> deletarPessoa(@PathVariable(value = "id") Long id){
-        pessoaService.excluir(id);
-        return ResponseEntity.ok("removido com sucesso");
-    }
-
-
 
 }

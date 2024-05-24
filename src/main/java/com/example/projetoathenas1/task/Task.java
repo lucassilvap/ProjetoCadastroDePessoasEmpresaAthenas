@@ -25,16 +25,6 @@ public class Task {
         }
     }
 
-    public Pessoa buscarPessoa(Long id) {
-        Optional<Pessoa> pessoa = pessoaRepository.findById(id);
-        return pessoa.orElse(null);
-    }
-
-    public void excluir(Long id) {
-        Pessoa pessoa = buscarPessoa(id);
-        pessoaRepository.delete(pessoa);
-    }
-
     public List<Pessoa> buscarTodos(){
         List<Pessoa> pessoas = (List<Pessoa>) pessoaRepository.findAll();
         return pessoas;
@@ -43,5 +33,10 @@ public class Task {
     public Pessoa buscarPessoaPorNome(String nome) {
         Optional<Pessoa> pessoa = pessoaRepository.findByNomeIgnoreCase(nome);
         return pessoa.orElseGet(Pessoa::new);
+    }
+
+    public void excluirPeloNome(String excluir) {
+        Pessoa pessoa = buscarPessoaPorNome(excluir);
+        pessoaRepository.delete(pessoa);
     }
 }

@@ -18,19 +18,15 @@ public class PessoaService {
        return task.incluir(pessoa);
     }
 
-    public Pessoa buscar(Long id) {
-        return task.buscarPessoa(id);
-    }
-
-    public void excluir(Long id) {
-        task.excluir(id);
-    }
-
     public List<Pessoa> buscarTodasAsPessoas(){
         return task.buscarTodos();
     }
 
     public Pessoa buscarPessoaPorNome(String name) {
         return task.buscarPessoaPorNome(name);
+    }
+
+    public void excluirPeloNome(String excluir) {
+        task.excluirPeloNome(excluir);
     }
 }
