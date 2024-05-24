@@ -6,6 +6,8 @@ import com.example.projetoathenas1.task.Task;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PessoaService {
 
@@ -22,5 +24,13 @@ public class PessoaService {
 
     public void excluir(Long id) {
         task.excluir(id);
+    }
+
+    public List<Pessoa> buscarTodasAsPessoas(){
+        return task.buscarTodos();
+    }
+
+    public Pessoa buscarPessoaPorNome(String name) {
+        return task.buscarPessoaPorNome(name);
     }
 }

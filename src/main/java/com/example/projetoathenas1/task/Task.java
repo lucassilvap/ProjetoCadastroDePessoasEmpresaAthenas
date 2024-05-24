@@ -34,4 +34,9 @@ public class Task {
         List<Pessoa> pessoas = (List<Pessoa>) pessoaRepository.findAll();
         return pessoas;
     }
+
+    public Pessoa buscarPessoaPorNome(String nome) {
+        Optional<Pessoa> pessoa = pessoaRepository.findByNomeIgnoreCase(nome);
+        return pessoa.orElseGet(Pessoa::new);
+    }
 }

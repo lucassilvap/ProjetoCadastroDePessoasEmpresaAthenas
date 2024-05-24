@@ -7,5 +7,35 @@
 <body>
 <h1>Pessoas Cadastradas</h1>
 
+<form>
+    <button type="button" onclick="redirecionar()"> Incluir Nova Pessoa</button>
+    <button type="button" onclick="pesquisar()"> Pesquisar </button>
+    <input type="text" id="buscar" name="buscar" th:value="${buscar}" required>
+</form>
+
+<ul>
+    <!-- Itera sobre a lista de itens e exibe cada item -->
+    <li th:each="pessoa : ${pessoas}"> Nome: [[${pessoa.nome}]]
+        <br> Cpf: [[${pessoa.cpf}]]
+        <br> Altura: [[${pessoa.altura}]]
+        <br> Peso: [[${pessoa.peso}]]
+        <br> Sexo: [[${pessoa.sexo}]] <br>
+    </li>
+</ul>
+
 </body>
+
+
+<script>
+    function redirecionar() {
+        // Redirecionamento para outra página
+        window.location.href = "http://localhost:8080/cadastrar";
+    }
+
+    function pesquisar(){
+        var buscar = document.getElementById('buscar').value;
+        var novaURL = "http://localhost:8080/pesquisar?nome=" + buscar;
+        window.location.href = novaURL;
+    }
+</script>
 </html>

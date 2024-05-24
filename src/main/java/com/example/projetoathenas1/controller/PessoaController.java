@@ -1,6 +1,4 @@
 package com.example.projetoathenas1.controller;
-
-import com.example.projetoathenas1.dto.Teste;
 import com.example.projetoathenas1.entity.Pessoa;
 import com.example.projetoathenas1.service.PessoaService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -39,5 +37,7 @@ public class PessoaController {
         pessoaService.excluir(id);
         return ResponseEntity.ok("removido com sucesso");
     }
+
+
 
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Detalhes da Pessoa</h1>
+
+
+
+<div th:if="${pessoa.nome != null}">
+    <form>
+        <button type="button" onclick="editar()"> Editar Pessoa</button>
+        <button type="button" onclick="excluir()"> Excluir Pessoa </button>
+        <button type="button" onclick="voltarATelaInicial()"> Voltar a tela inicial </button>
+    </form>
+    <p>Nome: <span th:text="${pessoa.nome}"></span></p>
+    <p>Cpf: <span th:text="${pessoa.cpf}"></span></p>
+    <p>Altura: <span th:text="${pessoa.altura}"></span></p>
+    <p>Peso: <span th:text="${pessoa.peso}"></span></p>
+    <p>Sexo: <span th:text="${pessoa.sexo}"></span></p>
+    <p>Data nascimento: <span th:text="${pessoa.data_Nasc}"></span></p>
+</div>
+<div th:if="${pessoa.nome == null}">
+    <p>Nenhuma pessoa encontrada</p>
+</div>
+</body>
+</html>
