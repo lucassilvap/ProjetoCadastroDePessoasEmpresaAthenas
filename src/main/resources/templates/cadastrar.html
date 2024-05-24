@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Pessoas</title>
+</head>
+<body>
+
+<h1>Cadastro de pessoas </h1>
+
+<form id="meuFormulario" onsubmit="event.preventDefault();">
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" th:value="${nome}" required><br><br>
+    <label for="data_Nasc">Data nascimento:</label>
+    <input type="date" id="data_Nasc" name="data_Nasc" th:value="${data_Nasc}" required><br><br>
+    <label for="cpf">Cpf:</label>
+    <input type="text" id="cpf" name="cpf" th:value="${cpf}" required><br><br>
+
+    <label for="sexo">Escolha o sexo:</label>
+    <select id="sexo" name="sexo" th:value="${sexo}" required><br><br>>
+        <option value="M">M</option>
+        <option value="F">F</option>
+    </select> <br><br>
+    <label for="altura">Altura:</label>
+    <input type="text" id="altura" name="altura" th:value="${altura}" required><br><br>
+    <label for="altura">Peso:</label>
+    <input type="text" id="peso" name="peso" th:value="${peso}" required><br><br>
+    <button type="button" onclick="enviarRequisicao()">Incluir</button>
+
+</form >
+<body/>
+ <script>
+
+     function enviarRequisicao() {
+
+         // Pegando os dados do formulário
+         var nome = document.getElementById('nome').value;
+         var data_Nasc = document.getElementById('data_Nasc').value;
+         var cpf = document.getElementById('cpf').value;
+         var sexo = document.getElementById('sexo').value;
+         var altura = document.getElementById('altura').value;
+         var peso = document.getElementById('peso').value;
+
+
+         var dados = {
+             nome: nome,
+             data_Nasc: data_Nasc,
+             cpf:cpf,
+             sexo:sexo,
+             altura:altura,
+             peso:peso
+         };
+
+         fetch('http://localhost:8080', {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body:JSON.stringify(dados)
+         })
+     }
+ </script>
+<html/>
