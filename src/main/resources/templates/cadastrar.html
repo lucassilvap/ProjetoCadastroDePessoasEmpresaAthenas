@@ -47,7 +47,7 @@
 
 <h1>Cadastro de pessoas </h1>
 
-<form id="meuFormulario" onsubmit="event.preventDefault();">
+<form id="meuFormulario" name="meuFormulario" onsubmit="event.preventDefault();">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" th:value="${nome}" required><br><br>
     <label for="data_Nasc">Data nascimento:</label> <br>
@@ -81,26 +81,31 @@
          var altura = document.getElementById('altura').value;
          var peso = document.getElementById('peso').value;
 
+         if(nome== "" || data_Nasc == "" || cpf == "" || sexo =="" || altura=="" || peso==""){
+             alert("Todos os campos devem estar preenchidos!")
+         } else{
 
-         var dados = {
-             nome: nome,
-             data_Nasc: data_Nasc,
-             cpf:cpf,
-             sexo:sexo,
-             altura:altura,
-             peso:peso
-         };
+             var dados = {
+                 nome: nome,
+                 data_Nasc: data_Nasc,
+                 cpf:cpf,
+                 sexo:sexo,
+                 altura:altura,
+                 peso:peso
+             };
 
-         fetch('http://localhost:8080', {
-             method: 'POST',
-             headers: {
-                 'Content-Type': 'application/json'
-             },
-             body:JSON.stringify(dados)
-         })
-         alert("Se já existir um usuário com o mesmo nome o novo usuário não será cadastrado!");
-         // Redirecionamento para outra página
-         window.location.href = "http://localhost:8080";
+             fetch('http://localhost:8080', {
+                 method: 'POST',
+                 headers: {
+                     'Content-Type': 'application/json'
+                 },
+                 body:JSON.stringify(dados)
+             })
+             alert("Se já existir um usuário com o mesmo nome o novo usuário não será cadastrado!");
+             // Redirecionamento para outra página
+             window.location.href = "http://localhost:8080";
+         }
+
      }
      function Voltar(){
          window.location.href = "http://localhost:8080";
