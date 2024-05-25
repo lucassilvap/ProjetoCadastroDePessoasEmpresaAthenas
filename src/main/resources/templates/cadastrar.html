@@ -3,6 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Pessoas</title>
+    <style>
+        /* Estilos para o formulário */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+
+        /* Estilos para os campos de entrada */
+        input[type="text"], input[type="date"], .largura-aumentada,
+        textarea {
+            width: 100%;
+            padding: 4px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Garante que o padding não altere a largura */
+        }
+
+        /* Estilos para o botão de envio */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
@@ -11,13 +50,13 @@
 <form id="meuFormulario" onsubmit="event.preventDefault();">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" name="nome" th:value="${nome}" required><br><br>
-    <label for="data_Nasc">Data nascimento:</label>
+    <label for="data_Nasc">Data nascimento:</label> <br>
     <input type="date" id="data_Nasc" name="data_Nasc" th:value="${data_Nasc}" required><br><br>
     <label for="cpf">Cpf:</label>
     <input type="text" id="cpf" name="cpf" th:value="${cpf}" required><br><br>
 
-    <label for="sexo">Escolha o sexo:</label>
-    <select id="sexo" name="sexo" th:value="${sexo}" required><br><br>>
+    <label for="sexo">Escolha o sexo:</label> <br>
+    <select class="largura-aumentada" id="sexo" name="sexo" th:value="${sexo}" required><br><br>>
         <option value="M">M</option>
         <option value="F">F</option>
     </select> <br><br>

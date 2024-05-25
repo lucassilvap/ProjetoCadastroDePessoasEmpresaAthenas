@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <style>
+        /* Estilos para o formulário */
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+
+        /* Estilos para os campos de entrada */
+        input[type="text"], input[type="date"], .largura-aumentada,
+        textarea {
+            width: 100%;
+            padding: 4px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Garante que o padding não altere a largura */
+        }
+
+        /* Estilos para o botão de envio */
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-<h2>Editar Pessoa</h2>
+<h1>Editar Pessoa</h1>
+<form>
 <label for="id"> Id:  </label>
 <input type="text" id="id" name="id"  th:value="${pessoa.id}" disabled>
 <br>
@@ -21,17 +62,16 @@
 <label for="peso"> Peso:</label>
 <input type="text" id="peso" name="peso" th:value="${pessoa.peso}">
 <br>
-<label for="sexo"> Sexo:</label>
-<select id="sexo" name="sexo" th:value="${pessoa.sexo}" required><br><br>>
+<label for="sexo"> Sexo:</label> <br>
+<select class="largura-aumentada" id="sexo" name="sexo" th:value="${pessoa.sexo}" required><br>
     <option value="M">M</option>
     <option value="F">F</option>
 </select>
 <br>
-<label for="data_Nasc"> Data de nascimento:</label>
+<label for="data_Nasc"> Data de nascimento:</label> <br>
 <input type="date" id="data_Nasc" name="data_Nasc" th:value="${pessoa.data_Nasc}" required>
 <br>
 <br>
-<form>
     <button type="button" onclick="Editar()"> Alterar Pessoa</button>
     <button type="button" onclick="voltarATelaInicial()"> Voltar a tela inicial </button>
 </form>

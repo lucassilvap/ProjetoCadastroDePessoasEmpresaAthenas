@@ -6,6 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -40,5 +41,9 @@ public class PessoaController {
         return ResponseEntity.ok(("Atualizado com sucesso!"));
     }
 
-
+    @GetMapping("/calcularpeso/{nome}")
+    public Float calcularPeso(@PathVariable(name = "nome") String nome){
+         Pessoa pessoa = pessoaService.buscarPessoaPorNome(nome);
+         return pessoa.calcularPesoIdeal();
+    }
 }
