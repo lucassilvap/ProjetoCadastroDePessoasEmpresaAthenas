@@ -29,4 +29,8 @@ public class PessoaService {
     public void excluirPeloNome(String excluir) {
         task.excluirPeloNome(excluir);
     }
+
+    public void atualizarPessoa(Pessoa pessoa) {
+       task.atualizarPessoa(pessoa);
+    }
 }

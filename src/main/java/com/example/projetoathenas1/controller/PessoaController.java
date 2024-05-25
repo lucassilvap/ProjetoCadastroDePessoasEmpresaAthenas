@@ -27,5 +27,18 @@ public class PessoaController {
        return ResponseEntity.ok(("Salvo com sucesso!"));
     }
 
+    @PutMapping
+    public ResponseEntity<?> atualizarPessoa(@RequestBody String string){
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        try {
+            Pessoa pessoa = objectMapper.readValue(string, Pessoa.class);
+            pessoaService.atualizarPessoa(pessoa);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.ok(("Atualizado com sucesso!"));
+    }
+
 
 }

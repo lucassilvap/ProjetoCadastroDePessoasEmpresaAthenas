@@ -6,9 +6,6 @@
 </head>
 <body>
 <h1>Detalhes da Pessoa</h1>
-
-
-
 <div th:if="${pessoa.nome != null}">
     <form>
         <button type="button" onclick="editar()"> Alterar Pessoa</button>
@@ -48,10 +45,10 @@ function excluir(){
     }).catch((error)=> console.log("error", error));
 }
 
-
-
 function editar(){
-    window.location.href = "http://localhost:8080";
+    var editar = [[${pessoa.nome}]]
+    var novaURL = `http://localhost:8080/atualizar/${editar}`;
+    window.location.href = novaURL;
 }
 </script>
 </html>

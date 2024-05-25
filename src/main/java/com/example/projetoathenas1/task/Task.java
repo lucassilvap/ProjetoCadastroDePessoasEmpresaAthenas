@@ -1,12 +1,10 @@
 package com.example.projetoathenas1.task;
-
 import com.example.projetoathenas1.entity.Pessoa;
 import com.example.projetoathenas1.repository.PessoaRepository;
-import com.example.projetoathenas1.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -38,5 +36,19 @@ public class Task {
     public void excluirPeloNome(String excluir) {
         Pessoa pessoa = buscarPessoaPorNome(excluir);
         pessoaRepository.delete(pessoa);
+    }
+
+    public void atualizarPessoa(Pessoa pessoa) {
+       Optional<Pessoa> pessoa1 = pessoaRepository.findById(pessoa.getId());
+       if(pessoa1.isPresent()){
+           pessoa.setId(pessoa1.get().getId());
+           if(pessoa1.get().getNome().equals(pessoa.getNome())){
+               pessoaRepository.save(pessoa);
+           }else if(!Objects.equals(pessoa1.get().getNome(), pessoa.getNome())){
+               Optional<Pessoa> pessoa2 = pessoaRepository
+                       .findByNomeIgnoreCase(pessoa.getNome());
+               if(pessoa2.isEmpty()) pessoaRepository.save(pessoa);
+           }
+       }
     }
 }

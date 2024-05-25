@@ -23,9 +23,10 @@
     </select> <br><br>
     <label for="altura">Altura:</label>
     <input type="text" id="altura" name="altura" th:value="${altura}" required><br><br>
-    <label for="altura">Peso:</label>
+    <label for="peso">Peso:</label>
     <input type="text" id="peso" name="peso" th:value="${peso}" required><br><br>
     <button type="button" onclick="enviarRequisicao()">Incluir</button>
+    <button type="button" onclick="Voltar()">Voltar</button>
 
 </form >
 <body/>
@@ -60,6 +61,9 @@
          })
          alert("Se o usuário já não existir ele será cadastrado!")
          // Redirecionamento para outra página
+         window.location.href = "http://localhost:8080";
+     }
+     function Voltar(){
          window.location.href = "http://localhost:8080";
      }
  </script>

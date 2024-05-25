@@ -82,6 +82,14 @@ public class Pessoa {
     public Pessoa() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public float calcularPesoIdeal() {
         if (this.sexo == 'H') {
             return (72 * this.altura) - 58;
