@@ -1,3 +1,11 @@
+Primeiro passo: git clone git@github.com:lucassilvap/ProjetoCadastroDePessoasEmpresaAthenas.git
+Criar um banco de dados mysql com o nome pessoas : create database pessoas;
+Atualizar as dependências do maven : mvn clean install estando na pasta do projeto
+Por fim só resta rodar a aplicação
+
+
+
+
 ![CadastroPessoa](https://github.com/lucassilvap/ProjetoCadastroDePessoasEmpresaAthenas/assets/92272692/fee6b132-2a9c-40c6-ac6e-53047c7bcd4e)
 
 ![DetalhesPessoa](https://github.com/lucassilvap/ProjetoCadastroDePessoasEmpresaAthenas/assets/92272692/54eae1a7-7f69-4e63-af97-21aa56327e09)
